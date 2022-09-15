@@ -1,2 +1,2 @@
-# telstra-starter-repo
-Starter repo for the Telstra backend Forage program
+# Telstra Starter Repo :bird:
+This repo has everything you need to get started on the Telstra program!
