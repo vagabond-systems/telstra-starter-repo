@@ -4,24 +4,31 @@ package au.com.telstra.simcardactivator.controller;
 import au.com.telstra.simcardactivator.models.ActuationResult;
 import au.com.telstra.simcardactivator.models.SimCard;
 import au.com.telstra.simcardactivator.service.SimCardActivation;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 public class SimController {
 
-    private final SimCardActivation simCardActivation;
+    private final SimCardActivation simCardService;
 
     public SimController(SimCardActivation simCardActivation) {
-        this.simCardActivation = simCardActivation;
+        this.simCardService = simCardActivation;
     }
 
     @PostMapping("/sim-activate")
     public void activateSimRequest(@RequestBody SimCard simCard) {
 
-        ActuationResult actuationResult= simCardActivation.actuate(simCard);
+        ActuationResult actuationResult = simCardService.actuate(simCard);
         System.out.println(actuationResult.getSuccess());
+        simCard.setActive(actuationResult.getSuccess());
+        simCardService.saveSimCard(simCard);
         System.out.println(simCard.toString());
+    }
+
+    @GetMapping("/sim-cards/{id}")
+    public Optional<SimCard> getSingleSim(@PathVariable Long id) {
+        return simCardService.getById(id);
     }
 }

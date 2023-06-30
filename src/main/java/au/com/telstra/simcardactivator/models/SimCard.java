@@ -1,6 +1,15 @@
 package au.com.telstra.simcardactivator.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class SimCard {
+
+    @Id
+    @GeneratedValue
+    private Long id ;
 
     private boolean active;
 
@@ -43,7 +52,8 @@ public class SimCard {
     @Override
     public String toString() {
         return "SimCard{" +
-                "active=" + active +
+                "id=" + id +
+                ", active=" + active +
                 ", iccid='" + iccid + '\'' +
                 ", customerEmail='" + customerEmail + '\'' +
                 '}';
