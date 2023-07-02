@@ -1,3 +1,3 @@
-# Telstra Starter Repo :bird:
+# Telstra-AU-Software-Engineering-Program :bird:
 
-This repo has everything you need to get started on the Telstra program!
+This repo has the solution for Telstra-AU-Software-Engineering-Program tasks
