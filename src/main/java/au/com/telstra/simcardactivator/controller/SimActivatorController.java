@@ -5,7 +5,6 @@ import java.net.URISyntaxException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,10 +20,10 @@ import au.com.telstra.simcardactivator.service.RestService;
 public class SimActivatorController {
 	
 	@Autowired
-	RestTemplate restTemplate;
+	private RestTemplate restTemplate;
 	
 	@Autowired
-	RestService restService;
+	private RestService restService;
 
 	@PostMapping(
 			  value = "/activateSim", consumes = "application/json", produces = "application/json")
