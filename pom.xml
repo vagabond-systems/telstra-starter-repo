@@ -15,6 +15,8 @@
     <description>Microservice responsible for activating Telstra sim cards</description>
     <properties>
         <java.version>11</java.version>
+        <sonar.host.url>http://localhost:9000</sonar.host.url>
+        <sonar.token>sqp_7b2024078fac740c57abe790a9cd5709ab9b00f9</sonar.token>
     </properties>
     <dependencies>
         <dependency>
@@ -60,6 +62,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>au.com.telstra.simcardactivator.SimCardActivator</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>
